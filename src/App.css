@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+}
+
+.ButtonSwitch {
+  background-color: white;
+  border: 5px solid blue;
+  padding: 8px;
+}

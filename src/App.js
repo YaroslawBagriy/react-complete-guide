@@ -5,9 +5,9 @@ import Person from './Person/Person';
 class App extends Component {
   state = {
     persons: [
-      { name: 'max', age: 28 },
-      { name: 'manu', age: 29 },
-      { name: 'steph', age: 23 },
+      { id: '0', name: 'max', age: 28 },
+      { id: '1', name: 'manu', age: 29 },
+      { id: '2', name: 'steph', age: 23 },
     ],
     showPersons: false
   }
@@ -38,7 +38,11 @@ class App extends Component {
   }
 
   deletePersonsHandler = (personIndex) => {
-    const persons = this.state.persons;
+    // Slice makes a copy of state
+    // const persons = this.state.persons.slice();
+
+    // Always update state in an immutable fashion
+    const persons = [...this.state.persons]
     persons.splice(personIndex, 1);
     this.setState({persons: persons});
   }
@@ -52,9 +56,11 @@ class App extends Component {
       persons = (
         <div>
           {this.state.persons.map((person, index) => {
+            // Always add a key property, allows dom to update onyl what it needs
             return <Person 
               name={person.name}
               age={person.age}
+              key={person.id}
               click={() => this.deletePersonsHandler(index)}
               changed={this.nameChangedHandler} />
           })}

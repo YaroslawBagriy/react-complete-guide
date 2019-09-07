@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## React-Complete_Guide
+## React-Complete-Guide
 
 This app was created following the Udemy course React - The Complete Guide (incl Hooks, React Router, Redux) by Maximilian Schwarzmüller.
 
